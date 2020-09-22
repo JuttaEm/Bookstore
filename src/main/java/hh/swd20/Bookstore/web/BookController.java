@@ -15,9 +15,12 @@ public class BookController {
 	@Autowired
 	private BookRepository bookRepository;
 	
-	@GetMapping("/index")
-	public String sayWelcome() {
+		@GetMapping("/index")
+		public String getAllBooks(Model model) {
 			
-		return "index";
-	}
+			model.addAttribute("books", bookRepository.findAll());
+			
+			return "index";
+		}
+		
 }
