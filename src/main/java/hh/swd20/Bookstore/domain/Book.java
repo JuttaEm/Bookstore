@@ -40,6 +40,11 @@ public class Book {
 		this.price = 0;
 	}
 
+		
+	public long getId() {
+		return id;
+	}
+
 	public String getTitle() {
 		return title;
 	}
