@@ -35,20 +35,12 @@ public class BookstoreApplication {
 		categoryRepository.save(category2);
 		categoryRepository.save(category3);
 		
-		log.info("save demo data of books");
+		log.info("save demo data of books with category");
 		
-		Book book1 = new Book("Rise of the Robots", "Martin Ford", "2016", "9780465097531", 16.90);
-		Book book2 = new Book("Veljeni Leijonamieli", "Astrid Lindgren", "1973", "9789510432761", 21.95);
-		Book book3 = new Book("Carrie", "Stephen King", "2011", "9781444720693", 11.50);
+		bookRepository.save(new Book("Rise of the Robots", "Martin Ford", "2016", "9780465097531", 16.90, category3));
+		bookRepository.save(new Book("Veljeni Leijonamieli", "Astrid Lindgren", "1973", "9789510432761", 21.95, category1));
+		bookRepository.save(new Book("Carrie", "Stephen King", "2011", "9781444720693", 11.50, category2));	
 		
-		bookRepository.save(book1);
-		bookRepository.save(book2);
-		bookRepository.save(book3);	
-		
-		log.info("fetch the categories");
-		for (Category category : categoryRepository.findAll()) {
-			log.info(category.toString());
-		}
 		
 		log.info("fetch all books");
 		for (Book book : bookRepository.findAll()) {
