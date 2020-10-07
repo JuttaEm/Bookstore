@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 // Add a new model class called Book which contains attributes: title, author, year, isbn, price
 
 
@@ -23,6 +25,7 @@ public class Book {
 	private double price;
 	
 	@ManyToOne
+	@JsonIgnoreProperties ("books")
 	@JoinColumn(name = "catId")
 	private Category category;
 	
